@@ -2,7 +2,7 @@
 import express from "express";
   
 // import function from controller
-import { createPo, showProducts } from "../controllers/Product.js";
+import { createLine, createPo, showProducts } from "../controllers/Product.js";
   
 // init express router
 const router = express.Router();
@@ -12,7 +12,12 @@ router.get('/products', showProducts);
 
 //insert product
 router.post('/products', createPo);
-  /*
+  
+//insert Line
+router.post('/productsline', createLine);
+
+
+/*
 // Get Single Product
 router.get('/product/:id', insertPO204);
   

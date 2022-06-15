@@ -1,5 +1,5 @@
 
-import { getProducts, insertPo} from "../models/productModel.js";
+import { getProducts, insertLine, insertPo} from "../models/productModel.js";
 
 //list all parts
 export const showProducts = (req, res) => {
@@ -16,6 +16,17 @@ export const showProducts = (req, res) => {
 export const createPo = (req, res) => {
     const data = req.body;
     insertPo(data, (err, results) => {
+        if (err){
+            res.send(err);
+        }else{
+            res.json(results);
+        }
+    });
+}
+//insert line order and check poNo is unique
+export const createLine = (req, res) => {
+    const data = req.body;
+    insertLine(data, (err, results) => {
         if (err){
             res.send(err);
         }else{

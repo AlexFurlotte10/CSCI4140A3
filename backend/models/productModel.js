@@ -23,4 +23,15 @@ export const insertPo = (data, result) => {
         }
     });   
 }
+//insert line
+export const insertLine = (data, result) => {
+    db.query("INSERT INTO line204 SET ?", [data], (err, results) => {             
+        if(err) {
+            console.log(err);
+            result(err, null);
+        } else {
+            result(null, results);
+        }
+    });   
+}
   
