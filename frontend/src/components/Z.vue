@@ -2,7 +2,7 @@
  
 <div id="parts">
 <header>
-    <h1>Welcome to Alex's Parts Store! (204)</h1>
+    <h1>Z part store</h1>
 </header>
 
 
