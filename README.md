@@ -1,4 +1,5 @@
 # CSCI4140A2
 
 ## To run application
-You must run npm install, go into backend directory and run node index.js, go into frontent directory and run npm run serve
+You must navigate into frontend directory and run npm install then npm run serve.
+To start server, go into backend directory and run node index.js
