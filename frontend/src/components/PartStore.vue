@@ -88,14 +88,14 @@
 
               <h3>Find PO</h3>
 
-    <div class="field">
-      <label class="label">Find Purchase order</label>
+   <div class="field">
+      <label class="label">Parts in your purchase order</label>
       <div class="control">
         <input
           class="input"
           type="text"
-          placeholder="PO Number"
-          v-model="findPO"
+          placeholder="PO number"
+          v-model="poNumber"
         />
       </div>
     </div>
@@ -155,37 +155,24 @@
     
     <div class="control">
       <button class="button is-success" @click="saveLine">SAVE</button>
-    </div>
+    </div> 
   </div> -->
         <br />
-         <!-- <table>
+         
 
    
-    <th>Possible PO numbers</th>
-  <tr v-for="item in items" :key="item.POs_PoNo204">
-          <td>{{ item.POs_PoNo204 }}</td>
-  </tr>
+    <h3>List of POs</h3>
+  <ul v-for="item in items" :key="item.POs_PoNo204">
+          <li>{{ item.x-order-POs_PoNo204 }}</li>
+  </ul>
 
   
-</table> -->
-<!-- <div class="field">
-      <label class="label">Find Your Purchase Order</label>
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          placeholder="Client ID"
-          v-model="clientID2"
-        />
-      </div>
-    </div>
+ 
+
     
-    <div class="control">
-      <button class="button is-success" @click="retrievePurchaseOrder">Enter</button>
-    </div>
         <br />
          
-    <div class="field">
+    <!-- <div class="field">
       <label class="label">Find Your Line Number</label>
       <div class="control">
         <input
@@ -199,7 +186,7 @@
     
     <div class="control">
       <button class="button is-success" @click="retrieveLine">Find</button>
-    </div> -->
+    </div>  -->
 </div> 
 
 
