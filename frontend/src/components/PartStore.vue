@@ -83,7 +83,25 @@
     </div>
     
     <div class="control">
-      <button class="button is-success" @click="saveProduct">SAVE</button>
+      <button class="button is-success" @click="saveProduct">Save</button>
+    </div>
+
+              <h3>Find PO</h3>
+
+    <div class="field">
+      <label class="label">Find Purchase order</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="PO Number"
+          v-model="findPO"
+        />
+      </div>
+    </div>
+    
+    <div class="control">
+      <button class="button is-success" @click="saveProduct">Find</button>
     </div>
   </div>
         <br />
