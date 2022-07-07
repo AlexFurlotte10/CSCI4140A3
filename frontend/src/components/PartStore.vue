@@ -2,38 +2,39 @@
  
 <div id="parts">
 <header>
-    <h1>Z part store</h1>
+    <h1>Welcome to the part store</h1>
+    <h3>Alex, Ryan and Noah built this using Vue.js, Node,js, Express.js, and MySQL</h3>
 </header>
 
 
-    <div>
+    <!-- <div>
         <h4>Insert client info (204)</h4>
         <form ID="Insert Client Info">
             <input placeholder="Client ID" type="text" id="ClientInfo" name="ClientInfo">
             <input type="submit" value="Submit">
         </form>
 
-    </div>
+    </div> -->
     
         <br />
         <div>
     
-     <table>
+     
 
    
-    <th>Parts Available</th>
-  <tr v-for="item in items" :key="item.P_No204">
-          <td>{{ item.P_Name204 }}</td>
-  </tr>
+    <h4>Parts Available from companies X and Y Part (name followed by part number)</h4>
+  <ul v-for="item in items" :key="item.P_No204">
+          <li>{{ item.P_Name204 }}</li>
+          <li>{{ item.P_No204 }}</li>
+  </ul>
   
-</table>
-      
         
         
    
   </div>
         <br />
         <div>
+          <h2>Company Z Part Store</h2>
           <h3>Submit PO</h3>
     <div class="field">
       <label class="label">Purchase order number</label>
@@ -58,6 +59,17 @@
         />
       </div>
     </div>
+    <div class="field">
+      <label class="label">Part Number</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Part Number"
+          v-model="partNumber"
+        />
+      </div>
+    </div>
   <div class="field">
       <label class="label">Date</label>
       <div class="control">
@@ -75,7 +87,7 @@
     </div>
   </div>
         <br />
-        <div>
+        <!-- <div>
           <h3>Submit Line</h3>
     <div class="field">
       <label class="label">Part Number</label>
@@ -126,9 +138,9 @@
     <div class="control">
       <button class="button is-success" @click="saveLine">SAVE</button>
     </div>
-  </div>
+  </div> -->
         <br />
-         <table>
+         <!-- <table>
 
    
     <th>Possible PO numbers</th>
@@ -137,8 +149,8 @@
   </tr>
 
   
-</table>
-<div class="field">
+</table> -->
+<!-- <div class="field">
       <label class="label">Find Your Purchase Order</label>
       <div class="control">
         <input
@@ -169,8 +181,8 @@
     
     <div class="control">
       <button class="button is-success" @click="retrieveLine">Find</button>
-    </div>
-</div>
+    </div> -->
+</div> 
 
 
 

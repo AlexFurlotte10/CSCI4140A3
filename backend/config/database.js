@@ -6,7 +6,7 @@ const db = mysql.createConnection({
     port: 3306,
     user:"root",
     password:"password",
-    database:"mydb"
+    database:"assignment3_396"
 });
   
 export default db;

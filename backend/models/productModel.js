@@ -3,7 +3,7 @@ import db from "../config/database.js";
   
 // Get All Products
 export const getProducts = (result) => {
-    db.query("SELECT * FROM parts204", (err, results) => {             
+    db.query("SELECT * FROM x-order-parts204", (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
@@ -80,5 +80,5 @@ export const getThePos = (data, result) => {
         }
     });   
 }
-  
+ 
   
