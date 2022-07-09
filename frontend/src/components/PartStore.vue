@@ -13,7 +13,6 @@
             <input placeholder="Client ID" type="text" id="ClientInfo" name="ClientInfo">
             <input type="submit" value="Submit">
         </form>
-
     </div> -->
     
         <br />
@@ -328,7 +327,6 @@ export default {
     },
   }
 };
-
 </script>
 
 <style>
