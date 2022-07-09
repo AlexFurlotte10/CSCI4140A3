@@ -21,11 +21,11 @@
      
 
    
-    <h4>Parts Available from companies X and Y Part (name followed by part number)</h4>
-  <ul v-for="part in parts" :key="part.P_No204">
-          <ul>{{ part.P_Name204 }}</ul>
-          <ul>{{ part.P_No204 }}</ul>
-          <ul>${{ part.P_CurrentPrice204 }}</ul>
+    <h4>List of Available Parts for Purchase</h4>
+  <ul v-for="part in parts" :key="part.P_No204" style="list-style:none;">
+          <li>Part Name: {{ part.P_Name204 }}</li>
+          <li>Part Number: {{ part.P_No204 }}</li>
+          <li>Price: ${{ part.P_CurrentPrice204 }}</li>
   </ul>
   
         
@@ -162,10 +162,10 @@
 
    
     <h3>List of POs</h3>
-  <ul v-for="item in items" :key="item.ZPOs_PoNo204">
-          <ul>PO Number: {{ item.ZPOs_PoNo204 }}</ul>
-          <ul>Client ID: {{ item.ZPOs_ClientCompID204 }}</ul>
-          <ul>PO Date: {{ item.ZPOs_DateofPO204 }}</ul>
+  <ul v-for="item in items" :key="item.ZPOs_PoNo204" style="list-style:none;">
+          <li>PO Number: {{ item.ZPOs_PoNo204 }}</li>
+          <li>Client ID: {{ item.ZPOs_ClientCompID204 }}</li>
+          <li>PO Date: {{ item.ZPOs_DateofPO204 }}</li>
 
           
   </ul>
