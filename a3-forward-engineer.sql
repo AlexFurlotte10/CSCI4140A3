@@ -184,6 +184,7 @@ CREATE TABLE IF NOT EXISTS `assignment3_396`.`z_Line204` (
   `Z_LineNo204` VARCHAR(45) NULL,
   `Z_PartNo204` INT NULL,
   `Z_QTY204` INT NULL,
+  `Z_From204` VARCHAR(11) NULL,
   `Z_PriceOrdered204` FLOAT(2) NULL,
   `z_Parts204_Z_No204` INT NOT NULL,
   PRIMARY KEY (`Z_PoNo204`, `z_Parts204_Z_No204`),
@@ -221,15 +222,15 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `assignment3_396`.`z_Clients204` (
   `ZC_ID204` INT NOT NULL,
-  `ZC_Name204` VARCHAR(45) NULL,
-  `ZC_City204` VARCHAR(45) NULL,
-  `ZC_Password204` VARCHAR(45) NULL,
-  `ZC_MoneyOwed204` INT NULL,
-  `z_POs204_ZPOs_PoNo204` INT NOT NULL,
-  `z_POs204_ZPOs_ClientCompID204` INT NOT NULL,
-  `z_POs204_z_Line204_Z_PoNo204` INT NOT NULL,
-  `z_POs204_z_Line204_z_Parts204_Z_No204` INT NOT NULL,
-  PRIMARY KEY (`ZC_ID204`, `z_POs204_ZPOs_PoNo204`, `z_POs204_ZPOs_ClientCompID204`, `z_POs204_z_Line204_Z_PoNo204`, `z_POs204_z_Line204_z_Parts204_Z_No204`),
+  `ZC_Name204` VARCHAR(45) NOT NULL,
+  `ZC_City204` VARCHAR(45) NOT NULL,
+  `ZC_Password204` VARCHAR(45) NOT NULL,
+  `ZC_MoneyOwed204` INT NOT NULL,
+  `z_POs204_ZPOs_PoNo204` INT NULL,
+  `z_POs204_ZPOs_ClientCompID204` INT NULL,
+  `z_POs204_z_Line204_Z_PoNo204` INT NULL,
+  `z_POs204_z_Line204_z_Parts204_Z_No204` INT NULL,
+  PRIMARY KEY (`ZC_ID204`),
   INDEX `fk_z_Clients204_z_POs204_idx` (`z_POs204_ZPOs_PoNo204` ASC, `z_POs204_ZPOs_ClientCompID204` ASC, `z_POs204_z_Line204_Z_PoNo204` ASC, `z_POs204_z_Line204_z_Parts204_Z_No204` ASC) VISIBLE,
   CONSTRAINT `fk_z_Clients204_z_POs204`
     FOREIGN KEY (`z_POs204_ZPOs_PoNo204` , `z_POs204_ZPOs_ClientCompID204` , `z_POs204_z_Line204_Z_PoNo204` , `z_POs204_z_Line204_z_Parts204_Z_No204`)

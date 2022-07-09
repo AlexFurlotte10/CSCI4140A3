@@ -7,7 +7,7 @@ import bodyParser from "body-parser";
 
 // import routes
 import Router from "./routes/routes.js";
-import xyRouter from "./routes/xyroutes.js";
+import xyRouter from "./routes/xy.routes.js";
 
 // init express
 const app = express();

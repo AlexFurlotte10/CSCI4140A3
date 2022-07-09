@@ -26,6 +26,7 @@
   <ul v-for="part in parts" :key="part.P_No204">
           <li>{{ part.P_Name204 }}</li>
           <li>{{ part.P_No204 }}</li>
+          <li>{{ part.P_CurrentPrice204 }}</li>
   </ul>
   
         
@@ -237,11 +238,20 @@ export default {
     },
     async saveProduct() {
       try {
+        await axios.post("http://localhost:5002/xy/xproducts", {
+          XPOs_PoNo204: this.purchaseOrder,
+          XPOs_ClientCompID: this.clientID,
+          XPOs_DateofPO: this.date,          
+        });
+        await axios.post("http://localhost:5002/xy/yproducts", {
+          YPOs_PoNo204: this.purchaseOrder,
+          YPOs_ClientCompID: this.clientID,
+          YPOs_DateofPO: this.date,
+        });
         await axios.post("http://localhost:5002/products", {
           POs_PoNo204: this.purchaseOrder,
           POs_ClientCompID: this.clientID,
           POs_DateofPO: this.date,
-          
         });
         this.purchaseOrder = "";
         this.clientID = "";
@@ -253,12 +263,11 @@ export default {
     },
     async saveLine() {
       try {
-        await axios.post("http://localhost:5002/productsline", {
-          L_PartNo204: this.partNumber,
-          L_PriceOrdered204: this.price,
-          L_QTY204: this.quantityOrdered,
-          L_PoNo204: this.purchaseOrderNumber,
-          
+        await axios.post("http://localhost:5002/xy/line", {
+          Z_PartNo204: this.partNumber,
+          Z_PriceOrdered204: this.price,
+          Z_QTY204: this.quantityOrdered,
+          Z_PoNo204: this.purchaseOrderNumber,          
         });
         this.partNumber = "";
         this.price = "";
