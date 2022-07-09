@@ -36,7 +36,7 @@ export const insertLine = (data, result) => {
 }
 //List Purchase order
 export const listPos = (result) => {
-    db.query("SELECT * FROM pos204", (err, results) => {             
+    db.query("SELECT * FROM Z_POs204", (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
