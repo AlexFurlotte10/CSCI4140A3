@@ -23,9 +23,9 @@
 
    
     <h4>Parts Available from companies X and Y Part (name followed by part number)</h4>
-  <ul v-for="item in items" :key="item.P_No204">
-          <li>{{ item.P_Name204 }}</li>
-          <li>{{ item.P_No204 }}</li>
+  <ul v-for="part in parts" :key="part.P_No204">
+          <li>{{ part.P_Name204 }}</li>
+          <li>{{ part.P_No204 }}</li>
   </ul>
   
         
@@ -202,6 +202,7 @@ export default {
   data() {
     return {
       items: [],
+      parts: [],
       purchaseOrder: "",
       clientID: "",
       date: "",
@@ -227,8 +228,9 @@ export default {
     // Get All Products
     async getProducts() {
       try {
-        const response = await axios.get("http://localhost:5002/products");
-        this.items = response.data;
+        const response = await axios.get("http://localhost:5002/xy/products");
+        this.parts = response.data;
+        console.log(response.data)
       } catch (err) {
         console.log(err);
       }

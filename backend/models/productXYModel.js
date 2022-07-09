@@ -23,20 +23,48 @@ export const getProducts = (result) => {
     } else {
       yProducts = results;
 
+      yProducts = yProducts.map(
+        ({
+          Y_No204: P_No204,
+          Y_Name204: P_Name204,
+          Y_CurrentPrice204: P_CurrentPrice204,
+          Y_QOH204: P_QOH204,
+        }) => ({
+          P_No204,
+          P_Name204,
+          P_CurrentPrice204,
+          P_QOH204,
+        })
+      );
+
+      xProducts = xProducts.map(
+        ({
+          X_No204: P_No204,
+          X_Name204: P_Name204,
+          X_CurrentPrice204: P_CurrentPrice204,
+          X_QOH204: P_QOH204,
+        }) => ({
+          P_No204,
+          P_Name204,
+          P_CurrentPrice204,
+          P_QOH204,
+        })
+      );
+
       for (const x of xProducts) {
         for (const y of yProducts) {
           // if no is same we add the lower price
-          if (x.X_No204 == y.Y_No204) {
-            if (x.X_CurrentPrice204 < y.Y_CurrentPrice204) {
+          if (x.P_No204 == y.P_No204) {
+            if (x.P_CurrentPrice204 < y.P_CurrentPrice204) {
               final.push(x);
               break;
-            } else if (x.X_CurrentPrice204 > y.Y_CurrentPrice204) {
+            } else if (x.P_CurrentPrice204 > y.P_CurrentPrice204) {
               final.push(y);
               break;
             }
             // if price is the same, we add the higher quantity
             else {
-              if (x.X_QOH204 > y.Y_QOH204) {
+              if (x.P_QOH204 > y.P_QOH204) {
                 final.push(x);
                 break;
               } else {
@@ -49,6 +77,17 @@ export const getProducts = (result) => {
       }
 
       result(null, final);
+    }
+  });
+};
+
+export const insertPo = (data, result) => {
+  db.query("INSERT INTO z_POs204 SET ?", [data], (err, results) => {
+    if (err) {
+      console.log(err);
+      result(err, null);
+    } else {
+      result(null, results);
     }
   });
 };
