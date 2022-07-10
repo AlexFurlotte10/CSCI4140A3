@@ -17,7 +17,7 @@ xyrouter.get("/products", showProducts);
 
 // Submit POs
 xyrouter.post("/xproducts", createXPo);
-xyrouter.post("/xproducts", createYPo);
+xyrouter.post("/yproducts", createYPo);
 
 // Submit Line
 xyrouter.post("/line", createLine);

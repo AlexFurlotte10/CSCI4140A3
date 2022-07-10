@@ -60,7 +60,7 @@ export const listPo = (req, res) => {
 //retrieve line with po
 export const retrieveMyLine = (req, res) => {
   const data = req.body;
-  getTheLines(req.params.id, (err, results) => {
+  getTheLines(data, (err, results) => {
       if (err){
           res.send(err);
       }else{

@@ -21,11 +21,11 @@
      
 
    
-    <h4>Parts Available from companies X and Y Part (name followed by part number)</h4>
-  <ul v-for="part in parts" :key="part.P_No204">
-          <li>{{ part.P_Name204 }}</li>
-          <li>{{ part.P_No204 }}</li>
-          <li>{{ part.P_CurrentPrice204 }}</li>
+    <h4>List of Available Parts for Purchase</h4>
+  <ul v-for="part in parts" :key="part.P_No204" style="list-style:none;">
+          <li>Part Name: {{ part.P_Name204 }}</li>
+          <li>Part Number: {{ part.P_No204 }}</li>
+          <li>Price: ${{ part.P_CurrentPrice204 }}</li>
   </ul>
   
         
@@ -86,7 +86,7 @@
       <button class="button is-success" @click="saveProduct">Save</button>
     </div>
 
-              <h3>Find PO</h3>
+              <!-- <h3>Find PO</h3>
 
    <div class="field">
       <label class="label">Parts in your purchase order</label>
@@ -102,10 +102,10 @@
     
     <div class="control">
       <button class="button is-success" @click="saveProduct">Find</button>
-    </div>
+    </div> -->
   </div>
         <br />
-        <!-- <div>
+        <div>
           <h3>Submit Line</h3>
     <div class="field">
       <label class="label">Part Number</label>
@@ -156,14 +156,18 @@
     <div class="control">
       <button class="button is-success" @click="saveLine">SAVE</button>
     </div> 
-  </div> -->
+  </div> 
         <br />
          
 
    
     <h3>List of POs</h3>
-  <ul v-for="item in items" :key="item.POs_PoNo204">
-          <li>{{ item.x-order-POs_PoNo204 }}</li>
+  <ul v-for="item in items" :key="item.ZPOs_PoNo204" style="list-style:none;">
+          <li>PO Number: {{ item.ZPOs_PoNo204 }}</li>
+          <li>Client ID: {{ item.ZPOs_ClientCompID204 }}</li>
+          <li>PO Date: {{ item.ZPOs_DateofPO204 }}</li>
+
+          
   </ul>
 
   
@@ -172,7 +176,7 @@
     
         <br />
          
-    <!-- <div class="field">
+    <div class="field">
       <label class="label">Find Your Line Number</label>
       <div class="control">
         <input
@@ -186,7 +190,7 @@
     
     <div class="control">
       <button class="button is-success" @click="retrieveLine">Find</button>
-    </div>  -->
+    </div>  
 </div> 
 
 
@@ -237,21 +241,21 @@ export default {
     },
     async saveProduct() {
       try {
-        await axios.post("http://localhost:5002/xy/xproducts", {
+        await Promise.all([axios.post("http://localhost:5002/xy/xproducts", {
           XPOs_PoNo204: this.purchaseOrder,
-          XPOs_ClientCompID: this.clientID,
-          XPOs_DateofPO: this.date,          
-        });
-        await axios.post("http://localhost:5002/xy/yproducts", {
+          XPOs_ClientCompID204: this.clientID,
+          XPOs_DateofPO204: this.date,          
+        }),axios.post("http://localhost:5002/xy/yproducts", {
           YPOs_PoNo204: this.purchaseOrder,
-          YPOs_ClientCompID: this.clientID,
-          YPOs_DateofPO: this.date,
-        });
-        await axios.post("http://localhost:5002/products", {
-          POs_PoNo204: this.purchaseOrder,
-          POs_ClientCompID: this.clientID,
-          POs_DateofPO: this.date,
-        });
+          YPOs_ClientCompID204: this.clientID,
+          YPOs_DateofPO204: this.date,
+        }),axios.post("http://localhost:5002/products", {
+          ZPOs_PoNo204: this.purchaseOrder,
+          ZPOs_ClientCompID204: this.clientID,
+          ZPOs_DateofPO204: this.date,
+        })
+        ]);
+        
         this.purchaseOrder = "";
         this.clientID = "";
         this.date = "";
@@ -314,9 +318,10 @@ export default {
     
 //  },
  async retrieveLine() {
+  console.log(this.lineNum);
       try {
         await axios.get("http://localhost:5002/productsLines", {
-          L_PoNo204: this.lineNum,
+          Z_LineNo204: this.lineNum,
         });
         this.lineNum = "";
         

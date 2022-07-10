@@ -121,7 +121,7 @@ export const insertLine = (data, results) => {
         } else {
           data.Z_From204 = "Y";
         }
-        db.query("INSERT INTO z_Lines204 SET ?", [data], (err, res) => {
+        db.query("INSERT INTO z_Line204 SET ?", [data], (err, res) => {
           if (err) {
             console.log(err);
           } else {
