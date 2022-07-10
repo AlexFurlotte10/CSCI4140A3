@@ -3,7 +3,7 @@
 # Team Members
 Alex Furlotte
 Ryan Hong
-Noah Abay B00742745
+Noah Abay
 
 ## Instructions to run application
 
