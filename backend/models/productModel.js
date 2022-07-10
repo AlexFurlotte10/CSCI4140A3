@@ -59,7 +59,7 @@ export const listPos = (result) => {
 
 export const getTheLines = (data, result) => {
   db.query(
-    `SELECT * FROM Z_line204 WHERE Z_LineNo204 = ${data.Z_LineNo204}`,
+    `SELECT * FROM z_line204 WHERE Z_LineNo204 = ${data.Z_LineNo204}`,
     (err, results) => {
       if (err) {
         console.log(err);
