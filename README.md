@@ -8,6 +8,7 @@ Noah Abay
 ## Instructions to run application
 
 # SQL
+- run a3-forward-engineer.sql 
 - run dummy data.sql query to populate db
 
 # Navigate to backend directory
