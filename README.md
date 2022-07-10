@@ -8,6 +8,7 @@ Noah Abay
 ## Instructions to run application
 
 # SQL
+- must change config in CSCI4140A3/backend/config/database.js to match your database specifications. (password and user)
 - run a3-forward-engineer.sql 
 - run dummy data.sql query to populate db
 
